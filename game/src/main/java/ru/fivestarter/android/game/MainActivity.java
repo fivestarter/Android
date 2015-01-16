@@ -1,6 +1,7 @@
 package ru.fivestarter.android.game;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +33,11 @@ public class MainActivity extends Activity {
 
     public void sayHello(View view) {
         textView.setText("! @ #");
+    }
+
+    public void goToNewActivity(View view) {
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
     }
 
 
