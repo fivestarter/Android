@@ -3,43 +3,39 @@ package ru.fivestarter.android.game;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    private TextView textView;
-    private Button noButton;
+
+    private EditText loginText;
+    private EditText passwordText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = (TextView) findViewById(R.id.textView);
-        noButton = (Button) findViewById(R.id.button2);
-
-        noButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView.setText("Hello world!");
-            }
-        });
+        loginText = (EditText) findViewById(R.id.login);
+        passwordText = (EditText) findViewById(R.id.password);
     }
 
-
-    public void sayHello(View view) {
-        textView.setText("! @ #");
-    }
-
-    public void goToNewActivity(View view) {
+    public void setData(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("login", loginText.getText().toString());
+        intent.putExtra("pass", passwordText.getText().toString());
         startActivity(intent);
     }
 
+    public void onToast(View view) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Привет", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
