@@ -1,7 +1,9 @@
 package ru.fivestarter.android.game;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -31,10 +33,19 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    public void onToast(View view) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Привет", Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
+    public void onPosition(View view) {
+        Context context = getApplicationContext();
+        Configuration configuration = getResources().getConfiguration();
+
+        if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Toast toast = Toast.makeText(context, "Portrait", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Toast toast = Toast.makeText(context, "Landscape", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     @Override

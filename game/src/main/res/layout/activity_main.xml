@@ -45,6 +45,6 @@
             android:layout_height="wrap_content"
             android:text="@string/toast_button_text"
             android:id="@+id/button2" android:layout_centerVertical="true" android:layout_centerHorizontal="true"
-            android:onClick="onToast"/>
+            android:onClick="onPosition"/>
 
 </RelativeLayout>
