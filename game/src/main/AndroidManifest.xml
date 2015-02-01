@@ -14,12 +14,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="ru.fivestarter.android.game.activity.FinishActivity"
-            android:label="@string/title_activity_finish" >
-        </activity>
     </application>
-
-    <uses-permission android:name="android.permission.VIBRATE" />
 
 </manifest>
